@@ -1,0 +1,118 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "description": "apiTask operations",
+        "title": "API for task create, read, update, delete"
+    },
+    "host": "localhost:4000",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/users/addUser": {
+            "post": {
+                "description": "api for adding records of User ",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "add new User object as needed ",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New User Successfully Created(added)."
+                    }
+                }
+            }
+        },
+        "/users/userList": {
+            "get": {
+                "description": "To display the users",
+                "responses": {
+                    "200": {
+                        "description": "Successfully fetched the records"
+                    }
+                }
+            }
+        },
+        "/users/userList/id": {
+            "get": {
+            "operationId": "getUserById",
+            "parameters":[
+            {
+            "name":"id",
+            "in":"query",
+            "type":"integer",
+            "format":"int64"
+            }
+            
+            ],
+            
+            "description": "display records of users by id",
+            "responses": {
+            "200": {
+            "description": "Successfully fetched the records of users"
+            }
+            }
+            }
+        },
+            
+        "/users/deleteUser/id": { 
+            "delete": {
+                "operationId": "getUserById",
+                "parameters":[
+                {
+                "name":"id",
+                "in":"query",
+                "type":"integer",
+                "format":"int64"
+                }
+                
+                ],
+        
+                "description": "To delete the user Id records by id",
+                "responses": {
+                    "200": {
+                        "description": "Successfully deleted the specified user Id"
+                    }
+                }
+            }
+        
+        },
+        "/users/updateUser/2": {
+            "put": {
+                "description": "Api for update",
+                "summary": "Update an existing student",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "update the userRecords as needed",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successfully updated userRecords."
+                    }
+                }
+            }
+        }
+    }
+}
